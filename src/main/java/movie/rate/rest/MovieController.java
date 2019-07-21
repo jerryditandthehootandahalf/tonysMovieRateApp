@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * A controller to handle requests for movies.
+ */
+
 @Controller
 @RequestMapping("/movie/")
 public class MovieController {
