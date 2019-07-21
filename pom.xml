@@ -7,6 +7,9 @@
     <groupId>tonysoft</groupId>
     <artifactId>movieApp</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <packaging>jar</packaging>
+
     <build>
         <plugins>
             <plugin>
@@ -17,15 +20,35 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <!-- Build an executable JAR -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>movie.rate.MovieRateApplication</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.5.2.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
-    <properties>
-    <jar.finalName>movieRate-${project.version}</jar.finalName>
-    </properties>
-
     <dependencies>
-
         <!--testing-->
         <dependency>
             <groupId>junit</groupId>
@@ -79,12 +102,12 @@
             <version>2.1.3.RELEASE</version>
         </dependency>
 
+        <!--application libraries-->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>26.0-jre</version>
         </dependency>
-
-
     </dependencies>
+
 </project>
