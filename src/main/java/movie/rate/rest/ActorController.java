@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+/**
+ * A controller to handle requests for movie actors.
+ */
+
 @Controller
 @RequestMapping("/actor/")
 public class ActorController {
